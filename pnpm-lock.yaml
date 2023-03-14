@@ -15,7 +15,6 @@ specifiers:
 
 dependencies:
   '@trpc/client': 10.16.0_@trpc+server@10.16.0
-  typescript: 4.9.5
 
 devDependencies:
   '@nuxtjs/eslint-config-typescript': 12.0.0_eslint@8.36.0+typescript@4.9.5
@@ -26,6 +25,7 @@ devDependencies:
   nuxt: 3.2.3_eslint@8.36.0+typescript@4.9.5
   prisma: 4.11.0
   trpc-nuxt: 0.7.0_0cb4cf17f552958700d17f69972c789f
+  typescript: 4.9.5
   zod: 3.21.4
 
 packages:
@@ -6751,6 +6751,7 @@ packages:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
     hasBin: true
+    dev: true
 
   /ufo/1.1.1:
     resolution: {integrity: sha512-MvlCc4GHrmZdAllBc0iUDowff36Q9Ndw/UzqmEKyrfSzokTd9ZCy1i+IIk5hrYKkjoYVQyNbrw7/F8XJ2rEwTg==}
