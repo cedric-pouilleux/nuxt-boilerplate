@@ -1,8 +1,12 @@
 import { initTRPC } from '@trpc/server'
+import superjson from 'superjson'
+import { Context } from './context'
 
-const t = initTRPC.create()
+const instance = initTRPC.context<Context>().create({
+  transformer: superjson
+})
 
-const isAuthed = t.middleware(({ next }) => {
+const isAuthed = instance.middleware(({ next }) => {
   return next({
     ctx: {
       session: { email: 'testemail.com' }
@@ -10,6 +14,6 @@ const isAuthed = t.middleware(({ next }) => {
   })
 })
 
-export const router = t.router
-export const publicProcedure = t.procedure
-export const protectedProcedure = t.procedure.use(isAuthed)
+export const router = instance.router
+export const publicProcedure = instance.procedure
+export const protectedProcedure = instance.procedure.use(isAuthed)

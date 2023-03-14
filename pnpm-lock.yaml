@@ -11,6 +11,7 @@ specifiers:
   lint-staged: ^13.2.0
   nuxt: ^3.2.3
   prisma: ^4.11.0
+  superjson: ^1.12.2
   trpc-nuxt: ^0.7.0
   ts-node: ^10.9.1
   typescript: ^4.9.5
@@ -29,6 +30,7 @@ devDependencies:
   lint-staged: 13.2.0
   nuxt: 3.2.3_5a5b759b063c39d7f65ac3354d97701e
   prisma: 4.11.0
+  superjson: 1.12.2
   trpc-nuxt: 0.7.0_0cb4cf17f552958700d17f69972c789f
   ts-node: 10.9.1_104ac8e392084fca826c1c64c04ca6e8
   typescript: 4.9.5
@@ -2715,6 +2717,13 @@ packages:
     resolution: {integrity: sha512-RyZrFi6PNpBFbIaQjXDlFIhFVqV42QeKSZX1yQIl6ihImq6vcHNGMtqQ/QzY3RMPuYSkvsRwtnt5M9NeYxKt0g==}
     dev: true
 
+  /copy-anything/3.0.3:
+    resolution: {integrity: sha512-fpW2W/BqEzqPp29QS+MwwfisHCQZtiduTe/m8idFo0xbti9fIZ2WVhAsCv4ggFVH3AgCkVdpoOCtQC6gBrdhjw==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.8
+    dev: true
+
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
     dev: true
@@ -4529,6 +4538,11 @@ packages:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
     dependencies:
       call-bind: 1.0.2
+    dev: true
+
+  /is-what/4.1.8:
+    resolution: {integrity: sha512-yq8gMao5upkPoGEU9LsB2P+K3Kt8Q3fQFCGyNCWOAnJAMzEXVV9drYb0TXr42TTliLLhKIBvulgAXgtLLnwzGA==}
+    engines: {node: '>=12.13'}
     dev: true
 
   /is-wsl/2.2.0:
@@ -6574,6 +6588,13 @@ packages:
       browserslist: 4.21.5
       postcss: 8.4.21
       postcss-selector-parser: 6.0.11
+    dev: true
+
+  /superjson/1.12.2:
+    resolution: {integrity: sha512-ugvUo9/WmvWOjstornQhsN/sR9mnGtWGYeTxFuqLb4AiT4QdUavjGFRALCPKWWnAiUJ4HTpytj5e0t5HoMRkXg==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.3
     dev: true
 
   /supports-color/5.5.0:
