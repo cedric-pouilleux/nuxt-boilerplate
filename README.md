@@ -14,14 +14,13 @@
 ## Setup
 
 ```bash
-# pnpm
-pnpm install
+pnpm i
+npx prisma migrate dev --name init
+pnpm run dev
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+## Database
 
 ```bash
-pnpm run dev
+npx prisma studio
 ```

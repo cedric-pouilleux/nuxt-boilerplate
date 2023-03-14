@@ -1,13 +1,12 @@
 import { z } from 'zod'
 
-const Plant = z.object({
-  id: z.number(),
-  cre: z.number()
+const PlantSchema = z.object({
+  id: z.number()
 })
 
-type PlantPayloadType = z.infer<typeof Plant>;
+type Plant = z.infer<typeof PlantSchema>;
 
 export {
-  Plant,
-  PlantPayloadType
+  PlantSchema,
+  Plant
 }
