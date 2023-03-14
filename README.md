@@ -1,6 +1,6 @@
 # Nuxt 3 boilerplate
 
-- Code format : Eslint / Typescript Lint
+- Code format : Eslint /   Lint
 - Pre commit with linter-stage & Husky
 - Agnostic ORM Database : Prisma
 - Client / Server communication protocol : tRPC
