@@ -1,0 +1,12 @@
+{
+  "*.ts": [
+    "eslint --fix"
+  ],
+  "*.vue": [
+    "eslint --fix"
+  ],
+  "*.html": [
+    "eslint --fix"
+  ],
+  "*.scss": "prettier --write"
+}
