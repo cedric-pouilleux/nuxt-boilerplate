@@ -8,9 +8,31 @@ datasource db {
 }
 
 model Plant {
+  id            Int       @id @default(autoincrement())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  floweringDate DateTime
+  breeders      Breeder[]
+  genetic       Genetic   @relation(fields: [geneticId], references: [id])
+  geneticId     Int
+}
+
+model Genetic {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  name      String    @unique
+  plants    Plant[]
+  breeders  Breeder[]
+}
+
+model Breeder {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  name      String   @unique
+  plants    Plant[]
+  Genetics   Genetic[]
 }
 
 model User {

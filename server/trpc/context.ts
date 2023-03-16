@@ -6,7 +6,7 @@ import { prisma } from '~/server/utils/prisma'
  * Creates context for an incoming request
  * @link https://trpc.io/docs/context
  */
-function createContext (_event: H3Event) {
+export function createContext (_event: H3Event) {
   const { req, res } = _event
   return {
     req,
