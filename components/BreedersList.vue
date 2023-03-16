@@ -1,5 +1,6 @@
 <template>
   <eection class="breeders-datalist">
+    <ConfirmPopup />
     <DataTable :value="breeders" data-key="id" edit-mode="cell" class="p-datatable-sm" @cell-edit-complete="onCellEditComplete">
       <template #header>
         <header class="data-header">
@@ -33,8 +34,15 @@
         </template>
       </Column>
       <Column :row-editor="true" style="width: 10%; min-width: 8rem" body-style="text-align:center">
-        <template #body>
-          <Button size="small" icon="pi pi-times" text label="remove" @click="handleRemove" />
+        <template #body="slotProps">
+          <Button
+            size="small"
+            rounded
+            icon="pi pi-times"
+            text
+            severity="danger"
+            @click="$event => handleRemove($event, slotProps)"
+          />
         </template>
       </Column>
     </DataTable>
@@ -42,7 +50,11 @@
 </template>
 
 <script setup lang="ts">
+import ConfirmPopup from 'primevue/confirmpopup'
+import { useConfirm } from 'primevue/useconfirm'
 import { reactive } from '#imports'
+
+const confirm = useConfirm()
 
 const { $client } = useNuxtApp()
 
@@ -54,8 +66,11 @@ async function onCellEditComplete (event: any) {
     breeders[event.index] = event.data.id
       ? await $client.editBreeder.mutate(event.newData)
       : await $client.pushBreeder.mutate(event.newData)
-  } catch (error) {
-    console.info(error)
+  } catch (error: any) {
+    console.log(error.message)
+    if (error.code === -32603) {
+      console.info('exist')
+    }
   }
 }
 
@@ -68,8 +83,24 @@ function handleAddBreeder () {
   })
 }
 
-function handleRemove () {
-
+function handleRemove (event: Event, props: any) {
+  if (props.data.name === 'name') {
+    breeders.splice(props.index, 1)
+    return
+  }
+  confirm.require({
+    target: (event.currentTarget as HTMLElement),
+    message: 'Are you sure you want to remove this breeder?',
+    icon: 'pi pi-exclamation-triangle',
+    accept: async () => {
+      try {
+        await $client.removeBreeder.mutate(props.data)
+        breeders.splice(props.index, 1)
+      } catch (error: any) {
+        console.info(error)
+      }
+    }
+  })
 }
 </script>
 

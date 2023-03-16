@@ -30,7 +30,22 @@ const editBreeder = publicProcedure
     })
   })
 
+const removeBreeder = publicProcedure
+  .input(
+    z.object({
+      id: number().optional()
+    })
+  )
+  .mutation((req) => {
+    return prisma.breeder.delete({
+      where: {
+        id: req.input.id
+      }
+    })
+  })
+
 export {
   pushBreeder,
-  editBreeder
+  editBreeder,
+  removeBreeder
 }
